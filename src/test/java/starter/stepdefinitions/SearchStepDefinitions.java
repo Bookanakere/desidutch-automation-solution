@@ -4,38 +4,41 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.pages.SearchPage;
+import starter.steps.GenericSteps;
+import starter.steps.SearchSteps;
 
 import static org.junit.Assert.assertEquals;
 
 public class SearchStepDefinitions {
 
     @Steps
-    SearchPage searchPage;
+    SearchSteps searchSteps;
+
+    @Steps
+    GenericSteps genericSteps;
 
     @Given("I am on the homepage of the desidutchstore")
     public void iAmOnTheHomepageOfTheDesidutchstore() {
-        searchPage.open();
+        genericSteps.openHomePage();
     }
 
     @When("I search for collection of {string}")
     public void iSearchForCollectionOf(String collectionInput) {
-        searchPage.searchCollection(collectionInput);
+        searchSteps.searchCollection(collectionInput);
     }
 
     @Then("I should see {string}")
     public void iShouldSee(String collectionResult) {
-        assertEquals(collectionResult, searchPage.getCollectionTitle());
+        searchSteps.verifyTitle(collectionResult);
     }
 
     @When("I search for category of {string}")
     public void iSearchForCategoryOf(String categoryInput) {
-        searchPage.searchCategory(categoryInput);
-        
+        searchSteps.searchCategory(categoryInput);
     }
 
     @Then("I should see items for {string}")
-    public void iShouldSeeItemsFor(String categoryResult) {
-        assertEquals(categoryResult, searchPage.getCollectionTitle());
+    public void iShouldSeeItemsFor(String collectionResult) {
+        searchSteps.verifyTitle(collectionResult);
     }
 }

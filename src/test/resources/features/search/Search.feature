@@ -9,4 +9,4 @@ Feature: Search
   Scenario: Search by category
     Given I am on the homepage of the desidutchstore
     When I search for category of "Lentils"
-    Then I should see items for "Lentils"
+    Then I should see items for "Pickles"

@@ -8,10 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-
-@DefaultUrl("https://desidutchstore.nl")
 public class SearchPage extends PageObject {
-
 
     @FindBy(className = "search-bar__input")
     private WebElement searchCollection;
@@ -28,26 +25,20 @@ public class SearchPage extends PageObject {
     @FindBy(xpath = "//h1[contains(@class,'collection__title')]")
     private WebElement collectionTitle;
 
-
-    @Step("Search by collection")
     public void searchCollection (String collectionInput){
         searchCollection.click();
         collections.findElement(By.xpath("//a[contains(text(),'"+collectionInput+"')]")).click();
     }
 
-    @Step("Search by category")
     public void searchCategory(String categoryInput){
         searchCollection.click();
         collections.findElement(By.xpath("//a[contains(text(),'"+categoryInput+"')]")).click();
-
        /* Select select = new Select(searchCategory);
         select.selectByVisibleText(""+categoryInput+"");
         searchCategorySubmit.click();*/
     }
 
-    @Step("Get title")
     public String getCollectionTitle() {
         return collectionTitle.getAttribute("innerHTML");
     }
-
 }
