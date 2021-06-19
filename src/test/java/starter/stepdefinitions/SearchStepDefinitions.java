@@ -29,7 +29,7 @@ public class SearchStepDefinitions {
 
     @Then("I should see {string}")
     public void iShouldSee(String collectionResult) {
-        searchSteps.verifyTitle(collectionResult);
+        searchSteps.verifyTitleForSearchCollectionResult(collectionResult);
     }
 
     @When("I search for category of {string}")
@@ -39,6 +39,6 @@ public class SearchStepDefinitions {
 
     @Then("I should see items for {string}")
     public void iShouldSeeItemsFor(String collectionResult) {
-        searchSteps.verifyTitle(collectionResult);
+        searchSteps.verifyTitleForSearchCategoryResult(collectionResult);
     }
 }

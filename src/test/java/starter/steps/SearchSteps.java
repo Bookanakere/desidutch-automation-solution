@@ -2,6 +2,7 @@ package starter.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 import starter.pages.SearchPage;
 
 import static org.junit.Assert.assertEquals;
@@ -18,15 +19,16 @@ public class SearchSteps {
     @Step("Search by category")
     public void searchCategory(String categoryInput){
         searchPage.searchCategory(categoryInput);
-
-       /* Select select = new Select(searchCategory);
-        select.selectByVisibleText(""+categoryInput+"");
-        searchCategorySubmit.click();*/
     }
 
-    @Step("Verify title")
-    public void verifyTitle(String collectionResult){
+    @Step("Verify title for search collection result")
+    public void verifyTitleForSearchCollectionResult(String collectionResult){
         assertEquals(collectionResult, searchPage.getCollectionTitle());
+    }
+
+    @Step("Verify title for search category result")
+    public void verifyTitleForSearchCategoryResult(String categoryResult){
+        assertEquals("Products for \"" + categoryResult + "\"", searchPage.getCollectionTitle());
     }
 
 }

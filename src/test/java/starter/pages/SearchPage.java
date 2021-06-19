@@ -31,14 +31,16 @@ public class SearchPage extends PageObject {
     }
 
     public void searchCategory(String categoryInput){
-        searchCollection.click();
-        collections.findElement(By.xpath("//a[contains(text(),'"+categoryInput+"')]")).click();
-       /* Select select = new Select(searchCategory);
+       // searchCollection.click();
+       // collections.findElement(By.xpath("//a[contains(text(),'"+categoryInput+"')]")).click();
+       Select select = new Select(searchCategory);
         select.selectByVisibleText(""+categoryInput+"");
-        searchCategorySubmit.click();*/
+        searchCategorySubmit.click();
     }
 
     public String getCollectionTitle() {
         return collectionTitle.getAttribute("innerHTML");
     }
+
+
 }
