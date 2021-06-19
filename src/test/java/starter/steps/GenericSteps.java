@@ -7,7 +7,7 @@ public class GenericSteps {
 
     private HomePage homePage;
 
-    @Step
+    @Step("Go to homepage of desidutchstore")
     public void openHomePage(){
         homePage.open();
     }
