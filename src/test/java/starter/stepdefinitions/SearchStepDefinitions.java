@@ -1,5 +1,6 @@
 package starter.stepdefinitions;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,9 +18,13 @@ public class SearchStepDefinitions {
     @Steps
     GenericSteps genericSteps;
 
+    @Before
+    public void openTheApplication(){
+        genericSteps.openHomePage();
+    }
+
     @Given("I am on the homepage of the desidutchstore")
     public void iAmOnTheHomepageOfTheDesidutchstore() {
-        genericSteps.openHomePage();
     }
 
     @When("I search for collection of {string}")

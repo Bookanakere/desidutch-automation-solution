@@ -2,7 +2,9 @@ package starter.pages;
 
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductPage extends PageObject {
@@ -21,7 +23,7 @@ public class ProductPage extends PageObject {
     }
 
     public void addToCart(String productInput){
-        getDriver().findElement(By.xpath("//a[contains(text(),'"+productInput+"')]//./..//./..//form[@action = '/cart/add']")).click();
+        getDriver().findElement(By.xpath("//a[contains(text(),'"+productInput+"')]//./..//./..//form[@action = '/cart/add']//button[@data-action='add-to-cart']")).click();
     }
 
     public void goToCart(){
