@@ -1,10 +1,7 @@
 package starter.steps;
 
 import net.thucydides.core.annotations.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 import starter.pages.SearchPage;
-
 import static org.junit.Assert.assertEquals;
 
 public class SearchSteps {
