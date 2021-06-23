@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 
 public class MyAccountPage extends PageObject {
 
-    @FindBy(className = "header__account-icon")
+    @FindBy(className = "header__action-item-content")
     WebElement myAccount;
 
-    @FindBy(xpath ="//button[contains(text(),'Create your account']")
+    @FindBy(xpath ="//button[contains(text(),'Create your account')]")
     WebElement createYourAccount;
 
     @FindBy(id="customer[first_name]")
@@ -34,9 +34,6 @@ public class MyAccountPage extends PageObject {
 
     public void goToCreateMyAccountPage(){
         myAccount.click();
-        //getDriver().findElement(By.xpath("//a[@href='/account/login']")).click();
-        //getDriver().findElement(By.linkText("My account"));
-        //getDriver().findElement(By.cssSelector("a[href='/account/login']")).click();
         createYourAccount.click();
     }
 
