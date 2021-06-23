@@ -10,5 +10,6 @@ public class GenericSteps {
     @Step("Go to homepage of desidutchstore")
     public void openHomePage(){
         homePage.open();
+        homePage.acceptCookie();
     }
 }

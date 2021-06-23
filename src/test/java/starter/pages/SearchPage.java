@@ -1,8 +1,6 @@
 package starter.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class SearchPage extends PageObject {
 
     @FindBy(className = "search-bar__input")
-    private WebElement searchCollection;
+    private WebElement searchBar;
 
     @FindBy(xpath = "//a[@class='search-bar__menu-link']")
     private WebElement collections;
@@ -26,14 +24,12 @@ public class SearchPage extends PageObject {
     private WebElement collectionTitle;
 
     public void searchCollection (String collectionInput){
-        searchCollection.click();
+        searchBar.click();
         collections.findElement(By.xpath("//a[contains(text(),'"+collectionInput+"')]")).click();
     }
 
     public void searchCategory(String categoryInput){
-       // searchCollection.click();
-       // collections.findElement(By.xpath("//a[contains(text(),'"+categoryInput+"')]")).click();
-       Select select = new Select(searchCategory);
+        Select select = new Select(searchCategory);
         select.selectByVisibleText(""+categoryInput+"");
         searchCategorySubmit.click();
     }
