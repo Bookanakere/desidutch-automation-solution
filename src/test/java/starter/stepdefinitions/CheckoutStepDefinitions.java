@@ -22,7 +22,6 @@ public class CheckoutStepDefinitions {
 
     @Given("I am on the {string} section")
     public void iAmOnTheSection(String collectionInput) {
-        genericSteps.openHomePage();
         searchSteps.searchCollection(collectionInput);
     }
 
