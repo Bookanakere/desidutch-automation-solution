@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resources/features"
-        //tags="@tab or @phone"
+        features = "src/test/resources/features",
+        tags = "not @NotReadyYet"
 )
 public class CucumberTestSuite {}

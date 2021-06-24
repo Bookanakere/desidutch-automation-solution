@@ -8,8 +8,6 @@ import net.thucydides.core.annotations.Steps;
 import starter.steps.GenericSteps;
 import starter.steps.SearchSteps;
 
-import static org.junit.Assert.assertEquals;
-
 public class SearchStepDefinitions {
 
     @Steps

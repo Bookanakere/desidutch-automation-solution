@@ -3,6 +3,7 @@ package starter.steps;
 import net.thucydides.core.annotations.Step;
 import starter.pages.InformationPage;
 import starter.pages.ProductPage;
+import static org.junit.Assert.assertEquals;
 
 public class CheckoutSteps {
 
@@ -25,8 +26,8 @@ public class CheckoutSteps {
     }
 
     @Step("Verify page title")
-    public String verifyPageTitle(){
-       return informationPage.getInformationPageTitle();
+    public void verifyPageTitle(){
+       assertEquals("Information - DesiDutchStore - Checkout",informationPage.getInformationPageTitle());
     }
 
 }

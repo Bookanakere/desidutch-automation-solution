@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class SearchPage extends PageObject {
-
     @FindBy(className = "search-bar__input")
     private WebElement searchBar;
 
@@ -21,7 +20,7 @@ public class SearchPage extends PageObject {
     private WebElement searchCategorySubmit;
 
     @FindBy(xpath = "//h1[contains(@class,'collection__title')]")
-    private WebElement collectionTitle;
+    private WebElement  collectionTitle;
 
     public void searchCollection (String collectionInput){
         searchBar.click();
