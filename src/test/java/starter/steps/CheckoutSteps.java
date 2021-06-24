@@ -27,7 +27,7 @@ public class CheckoutSteps {
 
     @Step("Verify page title")
     public void verifyPageTitle(){
-       assertEquals(informationPage.getInformationPageTitle(), "Information - DesiDutchStore - Checkout");
+       assertEquals("Information - DesiDutchStore - Checkout",informationPage.getInformationPageTitle());
     }
 
 }

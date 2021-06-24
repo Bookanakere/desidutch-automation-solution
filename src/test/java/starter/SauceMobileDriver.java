@@ -42,7 +42,7 @@ public class SauceMobileDriver implements DriverSource {
             {
                 case "ios":
                     sauceOptions = new MutableCapabilities();
-                    sauceOptions.setCapability("name", "DesiDutch_IOS_TEST");
+                    sauceOptions.setCapability("name", "TestSearchDesiDutchOnIos");
                     sauceOptions.setCapability("recordVideo","true");
 
                     capabilities = new DesiredCapabilities().iphone();
@@ -58,7 +58,7 @@ public class SauceMobileDriver implements DriverSource {
 
                 case "android":
                     sauceOptions = new MutableCapabilities();
-                    sauceOptions.setCapability("name", "DesiDutch_ANDROID_TEST");
+                    sauceOptions.setCapability("name", "TestSearchDesiDutchOnAndroid");
                     sauceOptions.setCapability("recordVideo","true");
 
                     capabilities = new DesiredCapabilities().android();

@@ -28,7 +28,7 @@ public class CreateAccountSteps {
 
     @Step("Verify login greetings title")
     public void verifyLoginGreetingsTitle(){
-        assertEquals(myAccountPage.getLoginGreetingsText(), "Hello Tom");
+        assertEquals("Hello Tom", myAccountPage.getLoginGreetingsText());
 
     }
 

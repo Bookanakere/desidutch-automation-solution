@@ -25,7 +25,7 @@ public class MyAccountPage extends PageObject {
     @FindBy(id="register-customer[password]")
     WebElement customerPassword;
 
-    @FindBy(xpath ="//button[contains(text(),'Create my account']")
+    @FindBy(xpath ="//button[contains(text(),'Create my account')]")
     WebElement createMyAccount;
 
     @FindBy(className = "header__action-item-title")
