@@ -34,6 +34,7 @@ public class SearchPage extends PageObject {
     }
 
     public String getCollectionTitle() {
+        waitFor(collectionTitle);
         return collectionTitle.getAttribute("innerHTML");
     }
 
