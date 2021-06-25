@@ -23,10 +23,12 @@ public class ProductPage extends PageObject {
     }
 
     public void addToCart(String productInput){
-        getDriver().findElement(By.xpath("//a[contains(text(),'"+productInput+"')]//./..//./..//form[@action = '/cart/add']//button[@data-action='add-to-cart']")).click();
+        getDriver().findElement(By.xpath("//a[contains(text(),'"+productInput+"')]/parent::div/following-sibling::form[@action = '/cart/add']//button[@data-action='add-to-cart']")).click();
+
     }
 
     public void goToCart(){
+        waitFor(cart);
         cart.click();
     }
 
