@@ -26,8 +26,8 @@ public class CheckoutSteps {
     }
 
     @Step("Verify page title")
-    public void verifyPageTitle(){
-       assertEquals("Information - DesiDutchStore - Checkout",informationPage.getInformationPageTitle());
+    public void verifyPageHeader(){
+       assertEquals("Contact information",informationPage.getContactInformationText());
     }
 
 }

@@ -38,6 +38,6 @@ public class CheckoutStepDefinitions {
 
     @Then("I should be taken to the information page")
     public void iShouldBeTakenToTheInformationPage() {
-        checkoutSteps.verifyPageTitle();
+        checkoutSteps.verifyPageHeader();
     }
 }

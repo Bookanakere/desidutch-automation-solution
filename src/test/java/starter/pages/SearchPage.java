@@ -29,11 +29,12 @@ public class SearchPage extends PageObject {
 
     public void searchCategory(String categoryInput){
         Select select = new Select(searchCategory);
-        select.selectByVisibleText(""+categoryInput+"");
+        select.selectByValue(""+categoryInput+"");
         searchCategorySubmit.click();
     }
 
     public String getCollectionTitle() {
+        waitFor(collectionTitle);
         return collectionTitle.getAttribute("innerHTML");
     }
 
