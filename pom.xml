@@ -19,6 +19,7 @@
         <tags></tags>
         <parallel.tests>4</parallel.tests>
         <webdriver.base.url></webdriver.base.url>
+        <platform>local-chrome</platform>
     </properties>
 
     <repositories>
@@ -48,10 +49,7 @@
             <artifactId>logback-classic</artifactId>
             <version>1.0.13</version>
         </dependency>
-        <!--
-          - To use Cucumber 4, exclude the old Cucumber 2 cucumber-core dependency from the serenity-core dependency
-          - and include the Cucumber 4 cucumber-java and cucumber-junit dependencies.
-        -->
+
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
@@ -103,6 +101,25 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>com.coderplus.maven.plugins</groupId>
+                <artifactId>copy-rename-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>${basedir}/platform/${platform}.properties</sourceFile>
+                            <destinationFile>${basedir}/serenity.properties</destinationFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -164,6 +181,7 @@
                     </execution>
                 </executions>
             </plugin>
+
 
 
         </plugins>
