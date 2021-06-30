@@ -13,6 +13,6 @@ public class GenericSteps {
     public void openHomePage(){
         homePage.open();
        //use below line only while running on saucelabs
-       homePage.acceptCookie();
+       //homePage.acceptCookie();
     }
 }
