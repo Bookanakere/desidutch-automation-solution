@@ -6,9 +6,12 @@ import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import starter.steps.CreateAccountSteps;
 
+import java.util.Map;
+
 
 public class CreateAccountStepDefinitions {
 
+    Map<String, String> customerInfo;
 
     @Steps
     CreateAccountSteps createAccountSteps;
@@ -21,13 +24,14 @@ public class CreateAccountStepDefinitions {
     }
 
     @When("I fill in required information")
-    public void iFillInRequiredInformation() {
-        createAccountSteps.setCustomerInformation();
+    public void iFillInRequiredInformation(Map<String,String> customerInfoData) {
+        customerInfo = customerInfoData;
+        createAccountSteps.setCustomerInformation(customerInfoData);
         createAccountSteps.submitFormToCreateAccount();
     }
 
     @Then("my account should be created")
     public void myAccountShouldBeCreated() {
-        createAccountSteps.verifyLoginGreetingsTitle();
+        createAccountSteps.verifyLoginGreetingsTitle(customerInfo.get("firstName"));
     }
 }
