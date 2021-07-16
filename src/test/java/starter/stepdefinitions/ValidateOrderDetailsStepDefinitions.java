@@ -28,10 +28,10 @@ public class ValidateOrderDetailsStepDefinitions {
         validateOrderSteps.goToMyOrdersPage();
     }
 
-    @Then("following order details should be present")
-    public void followingOrderDetailsShouldBePresent() {
+
+    @Then("following order details should be present {string}")
+    public void followingOrderDetailsShouldBePresent(String orderDetails) {
+        validateOrderSteps.verifyOrderDetails(orderDetails);
+
     }
-
-
-
 }
