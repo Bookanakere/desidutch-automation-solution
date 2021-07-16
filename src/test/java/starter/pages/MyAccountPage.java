@@ -31,6 +31,14 @@ public class MyAccountPage extends PageObject {
     @FindBy(className = "header__action-item-title")
     WebElement loginGreetings;
 
+    @FindBy(id="login-customer[email]")
+    WebElement email;
+
+    @FindBy(id="login-customer[password]")
+    WebElement password;
+
+    @FindBy(className="form__submit")
+    WebElement login;
 
     public void goToCreateMyAccountPage(){
         myAccount.click();
@@ -42,22 +50,43 @@ public class MyAccountPage extends PageObject {
     }
 
     public void setCustomerLastName(String customerLastName){
+
         this.customerLastName.sendKeys(customerLastName);
     }
 
     public void setCustomerEmail(String customerEmail) {
+
         this.customerEmail.sendKeys(customerEmail);
     }
 
     public void setCustomerPassword(String customerPassword) {
+
         this.customerPassword.sendKeys(customerPassword);
     }
 
     public void clickOnCreateMyAccount(){
+
         createMyAccount.click();
     }
 
     public String getLoginGreetingsText(){
+
         return loginGreetings.getText();
+    }
+
+    public void goToLoginPage(){
+        myAccount.click();
+    }
+
+    public void setEmail(String email){
+        this.email.sendKeys(email);
+    }
+
+    public void setPassword(String password){
+        this.password.sendKeys(password);
+    }
+
+    public void clickLogin(){
+        login.click();
     }
 }
