@@ -6,9 +6,11 @@ import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+import java.util.List;
+
 public class MyOrdersPage extends PageObject {
 
-    @FindBy(xpath="//*[@id=\"main\"]/section/div/div[2]/div[1]/div[1]/div/div/a[1]")
+    @FindBy(xpath="//*[@id=\"main\"]//a[@href='/account']")
     WebElement myOrders;
 
     @FindBy(xpath="//div[@class='table-wrapper']/table/tbody/tr[1]")
@@ -22,6 +24,8 @@ public class MyOrdersPage extends PageObject {
        return orderRow1.getText();
     }
 
-
+    public List<WebElement> getOrderTableContent(){
+        return getDriver().findElements(By.xpath("//div[@class='table-wrapper']/table/tbody/tr"));
+    }
 
 }
