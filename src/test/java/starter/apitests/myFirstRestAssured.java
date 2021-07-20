@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import static io.restassured.RestAssured.given;
 
 @RunWith(SerenityRunner.class)
-public class myFirstRestAssuredTest {
+public class myFirstRestAssured {
 
     @Test
      public void getResponseBody(){

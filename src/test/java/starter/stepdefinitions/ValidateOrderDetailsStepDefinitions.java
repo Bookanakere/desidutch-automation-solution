@@ -4,8 +4,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import starter.dataclass.OrderTableData;
 import starter.steps.LoginSteps;
 import starter.steps.ValidateOrderSteps;
+
+import java.util.List;
+import java.util.Map;
 
 public class ValidateOrderDetailsStepDefinitions {
 
@@ -14,6 +18,7 @@ public class ValidateOrderDetailsStepDefinitions {
 
     @Steps
     ValidateOrderSteps validateOrderSteps;
+
 
     @Given("User is logged in to the application with valid credentials {string} and {string}")
     public void userIsLoggedInToTheApplicationWithValidCredentialsAnd(String email, String password) {
@@ -28,10 +33,11 @@ public class ValidateOrderDetailsStepDefinitions {
         validateOrderSteps.goToMyOrdersPage();
     }
 
-
-    @Then("following order details should be present {string}")
-    public void followingOrderDetailsShouldBePresent(String orderDetails) {
-        validateOrderSteps.verifyOrderDetails(orderDetails);
+    @Then("following order details should be present")
+    public void followingOrderDetailsShouldBePresent(List<OrderTableData> orderTableDataInput) {
+          List<OrderTableData> orderTableDataCollection = validateOrderSteps.getOrderTableDataInfoIntoListOfObjects();
+          validateOrderSteps.verifyThatTheInputDataListIsPresentInTheListOfDataObjects(orderTableDataInput,orderTableDataCollection);
 
     }
+
 }
