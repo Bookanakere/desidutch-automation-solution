@@ -1,6 +1,5 @@
 package starter.steps;
 
-import com.ibm.icu.text.BidiTransform;
 import net.serenitybdd.core.annotations.findby.By;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.WebElement;
@@ -24,17 +23,9 @@ public class ValidateOrderSteps {
     }
 
 
-    @Step("Verify order details")
-    public void verifyOrderDetails(String orderDetails) {
-        assertEquals(orderDetails, myOrdersPage.getFirstOrder());
-    }
-
-
     @Step("Get order table data content into a list of data objects")
     public List<OrderTableData> getOrderTableDataInfoIntoListOfObjects() {
         List<WebElement> orderTableContent = myOrdersPage.getOrderTableContent();
-        System.out.println(orderTableContent.size());
-        System.out.println(orderTableContent.get(7).getText());
         for (WebElement orderRow : orderTableContent) {
             orderTableData = new OrderTableData();
             orderTableData.setOrder(orderRow.findElement(By.xpath(".//td[count(//div[@class='table-wrapper']/table/thead/tr/th[text()='Order']/preceding-sibling::th)+1]")).getText());
@@ -44,17 +35,13 @@ public class ValidateOrderSteps {
             orderTableData.setTotal(orderRow.findElement(By.xpath(".//td[count(//div[@class='table-wrapper']/table/thead/tr/th[text()='Total']/preceding-sibling::th)+1]")).getText());
             orderTableDataCollection.add(orderTableData);
         }
-        System.out.println(orderTableDataCollection.size());
-        System.out.println(orderTableDataCollection.get(7));
         return orderTableDataCollection;
     }
 
     @Step("Verify if the input data is present in the list of data objects")
     public void verifyThatTheInputDataListIsPresentInTheListOfDataObjects(List<OrderTableData> orderTableDataInput, List<OrderTableData> orderTableDataCollection) {
-        assertTrue(orderTableDataCollection.contains(orderTableDataInput));
+        assertTrue(orderTableDataCollection.containsAll(orderTableDataInput));
     }
-
-
 
 
 

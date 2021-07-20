@@ -6,6 +6,6 @@ Feature: Create Account
     When I fill in required information
     |firstName|rock|
     |lastName |star|
-    |email   |mercury@gmail.com|
+    |email   |mercury3@gmail.com|
     |password|password     |
     Then my account should be created

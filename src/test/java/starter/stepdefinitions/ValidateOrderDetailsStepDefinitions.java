@@ -35,15 +35,9 @@ public class ValidateOrderDetailsStepDefinitions {
 
     @Then("following order details should be present")
     public void followingOrderDetailsShouldBePresent(List<OrderTableData> orderTableDataInput) {
-        //List<OrderTableData> orderTableDataCollection = validateOrderSteps.getOrderTableDataInfoIntoListOfObjects();
-        System.out.println(orderTableDataInput.get(0));
-        //validateOrderSteps.verifyThatTheInputDataListIsPresentInTheListOfDataObjects(orderTableDataInput,orderTableDataCollection);
+          List<OrderTableData> orderTableDataCollection = validateOrderSteps.getOrderTableDataInfoIntoListOfObjects();
+          validateOrderSteps.verifyThatTheInputDataListIsPresentInTheListOfDataObjects(orderTableDataInput,orderTableDataCollection);
 
     }
 
-    @Then("following order details should be present {string}")
-    public void followingOrderDetailsShouldBePresent(String someInput) {
-
-        validateOrderSteps.getOrderTableDataInfoIntoListOfObjects();
-    }
 }
